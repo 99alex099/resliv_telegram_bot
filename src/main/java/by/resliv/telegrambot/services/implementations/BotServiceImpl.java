@@ -2,7 +2,6 @@ package by.resliv.telegrambot.services.implementations;
 
 import by.resliv.telegrambot.services.interfaces.BotService;
 import by.resliv.telegrambot.services.interfaces.CityService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
