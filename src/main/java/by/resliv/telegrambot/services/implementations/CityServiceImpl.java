@@ -19,6 +19,7 @@ import java.util.Optional;
 public class CityServiceImpl implements CityService {
 
     private static final String MESSAGE_CITY_NOT_FOUNDED = "Информация о заданном городе отсутствует";
+    private static final String MESSAGE_DATA_IS_EMPTY = "it is empty";
 
     private final CityRepository cityRepository;
     private final ConverterDTO<City, CityDTO> cityConverterDTO;
@@ -85,9 +86,9 @@ public class CityServiceImpl implements CityService {
     private void cityDTOIsCorrect(CityDTO cityDTO) throws CityNameIsIncorrect, CityDescriptionIsIncorrect {
         if (cityDTO.getCityName() == null || cityDTO.getCityName().equals("")) {
             throw new CityNameIsIncorrect(cityDTO.getCityName(),
-                    "it is empty");
+                    MESSAGE_DATA_IS_EMPTY);
         } else if ( cityDTO.getDescription() == null || cityDTO.getDescription().equals("") ) {
-            throw new CityDescriptionIsIncorrect(cityDTO.getDescription(), "it is empty");
+            throw new CityDescriptionIsIncorrect(cityDTO.getDescription(), MESSAGE_DATA_IS_EMPTY);
         } else if (cityDTO.getCityName().length() > 64) {
             throw new CityNameIsIncorrect(cityDTO.getCityName(), "size must not exceed 64");
         } else if (cityDTO.getDescription().length() > 256) {
